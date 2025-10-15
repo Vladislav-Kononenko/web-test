@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCraft Studio - Создание современных веб-решений</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">WebCraft Studio</a>
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#calculator">Калькулятор</a></li>
+                <li><a href="#about">О программе</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Прогресс скролла -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Переключатель темы -->
+    <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+    <!-- Панель статистики -->
+    <div class="stats-panel" id="stats-panel">
+        <div>👁️ Посещений: <span id="visit-count">0</span></div>
+        <div>⏰ Последний визит: <span id="last-visit">Впервые</span></div>
+        <div>📍 Текущая позиция: <span id="current-section">Главная</span></div>
+    </div>
+
+    <!-- Кнопка очистки cookies -->
+    <button class="clear-cookies-btn" onclick="clearAllCookies()">🗑️ Очистить данные</button>
+
+    <!-- Overlay для увеличения изображений -->
+    <div class="zoom-overlay" id="zoom-overlay" onclick="closeZoom()"></div>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1 class="typing-effect">WebCraft Studio</h1>
+                <p>Создаем современные веб-решения для вашего бизнеса</p>
+                <a href="#calculator" class="btn">Рассчитать стоимость</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <section id="services" class="section">
+                <h2 style="text-align: center; color: #667eea; margin-bottom: 2rem; font-size: 2.5rem;">Наши услуги</h2>
+                <div class="services">
+                    <div class="service-card">
+                        <h3>Веб-дизайн</h3>
+                        <p>Создание уникального и привлекательного дизайна для вашего сайта с учетом современных трендов и пользовательского опыта.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Frontend разработка</h3>
+                        <p>Разработка интерактивных пользовательских интерфейсов с использованием современных технологий HTML5, CSS3, JavaScript.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Адаптивная верстка</h3>
+                        <p>Создание сайтов, которые отлично выглядят и работают на всех устройствах - от мобильных телефонов до больших экранов.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="calculator" class="section">
+                <h2 style="text-align: center; color: #667eea; margin-bottom: 2rem; font-size: 2.5rem;">Калькулятор стоимости проекта</h2>
+                <div class="calculator">
+                    <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
+                        Выберите необходимые услуги для расчета примерной стоимости вашего проекта:
+                    </p>
+                    
+                    <div class="calc-option">
+                        <div>
+                            <strong>Дизайн лендинга</strong>
+                            <p style="color: #666; margin: 0;">Создание современного дизайна одностраничного сайта</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="calc-checkbox" data-price="15000" onchange="calculateTotal()">
+                            <span style="margin-left: 10px; font-weight: bold;">15 000 ₽</span>
+                        </div>
+                    </div>
+
+                    <div class="calc-option">
+                        <div>
+                            <strong>Многостраничный сайт</strong>
+                            <p style="color: #666; margin: 0;">Корпоративный сайт с несколькими разделами</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="calc-checkbox" data-price="35000" onchange="calculateTotal()">
+                            <span style="margin-left: 10px; font-weight: bold;">35 000 ₽</span>
+                        </div>
+                    </div>
+
+                    <div class="calc-option">
+                        <div>
+                            <strong>Интернет-магазин</strong>
+                            <p style="color: #666; margin: 0;">Полнофункциональный магазин с корзиной и оплатой</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="calc-checkbox" data-price="75000" onchange="calculateTotal()">
+                            <span style="margin-left: 10px; font-weight: bold;">75 000 ₽</span>
+                        </div>
+                    </div>
+
+                    <div class="calc-option">
+                        <div>
+                            <strong>Адаптивная верстка</strong>
+                            <p style="color: #666; margin: 0;">Оптимизация под мобильные устройства</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="calc-checkbox" data-price="10000" onchange="calculateTotal()">
+                            <span style="margin-left: 10px; font-weight: bold;">10 000 ₽</span>
+                        </div>
+                    </div>
+
+                    <div class="calc-option">
+                        <div>
+                            <strong>SEO-оптимизация</strong>
+                            <p style="color: #666; margin: 0;">Настройка для поисковых систем</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="calc-checkbox" data-price="12000" onchange="calculateTotal()">
+                            <span style="margin-left: 10px; font-weight: bold;">12 000 ₽</span>
+                        </div>
+                    </div>
+
+                    <div class="calc-option">
+                        <div>
+                            <strong>Система управления контентом</strong>
+                            <p style="color: #666; margin: 0;">Admin-панель для самостоятельного редактирования</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="calc-checkbox" data-price="25000" onchange="calculateTotal()">
+                            <span style="margin-left: 10px; font-weight: bold;">25 000 ₽</span>
+                        </div>
+                    </div>
+
+                    <div class="calc-result" id="calc-result">
+                        Общая стоимость: 0 ₽
+                    </div>
+
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <button class="btn" onclick="resetCalculator()">Сбросить выбор</button>
+                        <button class="btn" onclick="saveCalculation()" style="margin-left: 1rem;">Сохранить расчет</button>
+                    </div>
+
+                    <div id="save-message" class="success-message" style="display: none;">
+                        ✅ Расчет успешно сохранен!
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section id="about" class="section">
+                <h2 style="text-align: center; color: #667eea; margin-bottom: 2rem; font-size: 2.5rem;">О программе</h2>
+                <div class="about-section">
+                    <div class="author-photo">
+                        <img src="photo.jpg" 
+                             alt="Фото автора" 
+                             class="zoomable" 
+                             onclick="zoomImage(this)">
+                    </div>
+                    <div class="author-info">
+                        <h2>Кононенко Владислав Андреевич</h2>
+                        <h3>Краткая биография</h3>
+                        <p>Веб-разработчик с 5-летним опытом создания современных интернет-решений. Обучаюсь в Воронежском государственном университете по специальности "Программная инженерия". Специализируюсь на frontend-разработке, создании адаптивных интерфейсов и оптимизации пользовательского опыта.</p>
+                        <p>За время работы участвовал в создании более 50 проектов различной сложности - от корпоративных сайтов до сложных веб-приложений. Постоянно изучаю новые технологии и следую современным трендам в веб-разработке.</p>
+                        <h3>О сайте</h3>
+                        <p>WebCraft Studio - это проект, демонстрирующий возможности современной веб-разработки. Сайт создан с использованием чистых HTML5, CSS3 и JavaScript, демонстрируя принципы адаптивного дизайна, современные CSS-эффекты и интерактивные элементы.</p>
+                        <p>Основная цель проекта - показать, как можно создать красивый и функциональный сайт, используя базовые веб-технологии. Сайт включает в себя современные визуальные эффекты, градиенты, анимации и отзывчивую верстку.</p>
+
+                        <div class="contact-info">
+                            <h3>Связаться со мной</h3>
+                            <div class="email-form">
+                                <h4 style="margin-bottom: 1rem; color: #333;">Написать письмо</h4>
+                                <form id="contact-form" onsubmit="sendEmail(event)">
+                                    <div class="form-group">
+                                        <label for="name">Ваше имя:</label>
+                                        <input type="text" id="name" name="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Ваш email:</label>
+                                        <input type="email" id="email" name="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message">Сообщение:</label>
+                                        <textarea id="message" name="message" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn" id="submit-btn">
+                                        <span id="btn-text">Отправить письмо</span>
+                                    </button>
+                                    <div id="success-message" style="display:none; color:green; margin-top:10px;">
+                                        Сообщение успешно отправлено!
+                                    </div>
+                                    <div id="error-message" style="display:none; color:red; margin-top:10px;">
+                                        Произошла ошибка отправки.
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            
+                            <div class="contact-links">
+                                <a href="mailto:vlad.konon2005@mail.ru">✉️ vlad.konon2005@mail.ru</a>
+                                <a href="https://github.com/kononenko_vladislav" target="_blank">🔗 GitHub</a>
+                                <a href="https://linkedin.com/in/kononenko_vladislav" target="_blank">💼 LinkedIn</a>
+                                <a href="https://t.me/kononvlad" target="_blank">📱 Telegram</a>
+                                <a href="https://codepen.io/kononenko_vladislav" target="_blank">🎨 CodePen</a>
+                                <a href="https://habr.com/users/kononenko_vladislav" target="_blank">📖 Habr</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tasks" class="section">
+              <h2 style="text-align: center; color: #667eea; margin-bottom: 2rem; font-size: 2.5rem;">Менеджер задач</h2>
+              <div class="container" style="max-width: 600px; margin: auto;">
+                <input id="task-input" type="text" placeholder="Новая задача" style="width: 100%; padding: 10px; font-size: 1rem; margin-bottom: 20px;">
+                <ul id="task-list"></ul>
+              </div>
+            </section>
+
+            <section id="contact" class="section">
+                <h2 style="text-align: center; color: #667eea; margin-bottom: 2rem; font-size: 2.5rem;">Контакты</h2>
+                <div style="text-align: center;">
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                        Готов обсудить ваш проект и предложить оптимальные решения для вашего бизнеса.
+                        Свяжитесь со мной любым удобным способом!
+                    </p>
+                    <div class="contact-links" style="justify-content: center;">
+                        <a href="mailto:vlad.konon2005@mail.ru">📧 Написать email</a>
+                        <a href="tel:+79123456789">📞 +7 (912) 345-67-89</a>
+                        <a href="https://wa.me/79123456789" target="_blank">💬 WhatsApp</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 WebCraft Studio. Все права защищены. | Создано с ❤️ Кононенко Владиславом</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="main.js"></script>
+    
+</body>
+</html>
